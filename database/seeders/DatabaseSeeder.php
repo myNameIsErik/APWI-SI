@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
 use App\Models\Article;
-use App\Models\Category;
+use App\Models\Articlecategory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,34 +16,51 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'name' => 'Admin 1',
+            'username' => 'admin',
+            'email' => 'Admin@gmail.com',
+            'password' => bcrypt('12345678')
+        ]);
+
+        User::create([
+            'name' => 'Admin 2',
+            'username' => 'admin2',
+            'email' => 'Admin2@gmail.com',
+            'password' => bcrypt('12345678')
+        ]);
+
         Article::create([
-            'category_id' => 1,
+            'articlecategory_id' => 1,
+            'user_id' => 1,
             'title' => 'Judul Satu',
             'slug' => 'judul-satu',
             'excerpt' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
             'body' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
         ]);
         Article::create([
-            'category_id' => 2,
+            'articlecategory_id' => 2,
+            'user_id' => 2,
             'title' => 'Judul Dua',
             'slug' => 'judul-dua',
             'excerpt' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the',
             'body' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries',
         ]);
         Article::create([
-            'category_id' => 1,
+            'articlecategory_id' => 1,
+            'user_id' => 1,
             'title' => 'Judul Tiga',
             'slug' => 'judul-tiga',
             'excerpt' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
             'body' => 'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
         ]);
 
-        Category::create([
+        Articlecategory::create([
             'name' => 'Pelatihan Kepemimpinan',
             'slug' => 'pelatihan-kepemimpinan'
         ]);
 
-        Category::create([
+        Articlecategory::create([
             'name' => 'Pelatihan Keanggotaan',
             'slug' => 'pelatihan-keanggotaan'
         ]);

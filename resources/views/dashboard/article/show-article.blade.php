@@ -1,28 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <main id="main">
-    <!-- ======= Blog Header ======= -->
-    <div class="header-bg page-area">
-      <div class="container position-relative">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="slider-content text-center">
-              <div class="header-bottom">
-                <div class="layer2">
-                  <h1 class="title2">Blog Details </h1>
-                </div>
-                <div class="layer3">
-                  <h2 class="title3">profesional Blog Page</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Blog Header -->
-
     <!-- ======= Blog Page ======= -->
-    <div class="blog-page area-padding">
+    <div class="blog-page area-padding mt-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4">
@@ -39,25 +19,17 @@
                     <img src="/assets/img/blog/6.jpg" alt="" />
                   </div>
                   <div class="post-information">
-                    <h2>{{ $article->title }}</h2>
+                    <h2>{{ $articles->title }}</h2>
                     <div class="entry-meta">
-                      <span class="author-meta"><i class="bi bi-person"></i> <a href="#">admin</a></span>
-                      <span><i class="bi bi-clock"></i> march 28, 2016</span>
+                      {{-- <span class="author-meta"><i class="bi bi-person"></i> <a href="#">{{ $articles->user->name }}</a></span> --}}
                       <span class="tag-meta">
                         <i class="bi bi-folder"></i>
-                        <a href="#">painting</a>,
-                        <a href="#">work</a>
+                        in <a href="/articles/categories/{{ $articles->articlecategory->slug }}" class="text-danger">{{ $articles->articlecategory->name }}</a>
                       </span>
-                      <span>
-                        <i class="bi bi-tags"></i>
-                        <a href="#">tools</a>,
-                        <a href="#"> Humer</a>,
-                        <a href="#">House</a>
-                      </span>
-                      <span><i class="bi bi-chat"></i> <a href="#">6 comments</a></span>
+                      <span><i class="bi bi-clock"></i> {{ $articles->articlecategory->created_at }}</span>
                     </div>
-                    <div class="entry-content">
-                      {{ $article->body }}
+                    <div class="entry-content" style="word-wrap: break-word">
+                      {{ $articles->body }}
                       {{-- <blockquote>
                         <p>Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur. In venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed, cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin dictum
                           tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque scelerisque.</p>

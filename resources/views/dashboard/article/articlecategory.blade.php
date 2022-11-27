@@ -1,4 +1,4 @@
-@extends('layouts.master')
+{{-- @extends('layouts.master')
 @section('content')
 <main id="main">
     <!-- ======= Blog Header ======= -->
@@ -47,7 +47,7 @@
                       </span>
                       <span class="comments-type">
                         <i class="bi bi-folder"></i>
-                        Category in <a href="/articlecategories/{{ $article->category->slug }}" class="text-danger">{{ $article->category->name }}</a>
+                        Category in <a href="/articles/categories/{{ $article->articlecategory->slug }}" class="text-danger">{{ $article->articlecategory->name }}</a>
                       </span>
                       <span class="date-type">
                         <i class="bi bi-calendar"></i>2016-03-05 / 09:10:16
@@ -55,14 +55,14 @@
                     </div>
                     <div class="blog-text">
                       <h4>
-                        <a href="articles/{{ $article->slug }}">{{ $article->title }}</a>
+                        <a href="/articles/{{ $article->slug }}">{{ $article->title }}</a>
                       </h4>
                       <p>
                         {{ $article->excerpt }}
                       </p>
                     </div>
                     <span>
-                      <a href="articles/{{ $article->slug }}" class="ready-btn">Read more</a>
+                      <a href="/articles/{{ $article->slug }}" class="ready-btn">Read more</a>
                     </span>
                   </div>
                 </div>
@@ -85,4 +85,4 @@
     </div><!-- End Blog Page -->
 
   </main><!-- End #main -->
-@endsection
+@endsection --}}
